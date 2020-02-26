@@ -1,6 +1,4 @@
 #Import dependencies
-from flask import Flask, url_for, jsonify
-from markupsafe import escape
 import numpy as np
 import pandas as pd
 import datetime as dt
@@ -8,6 +6,8 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import inspect, create_engine, func
+from flask import Flask, url_for, jsonify
+from markupsafe import escape
 
 #Establish connection to database
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
@@ -70,4 +70,4 @@ def end():
   return jsonify(start_end_temp_list)
     
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(debug=False)
